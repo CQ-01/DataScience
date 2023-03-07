@@ -2,6 +2,7 @@
 ## 시작하기
 ```python
 import pandas as pd
+pd.__version__
 ```
 ## 파일 불러오기
 ```python
@@ -63,7 +64,7 @@ df['cut'].quantile(q = 0.25)  # 1사분위수
 ```python
 df.ndim  # 객체의 차원
 df.shape  # 각 차원의 길이(N * N)
-df.dtypes  # 데이터타입(dtype와 구별)
+df.dtypes  # 전 컬럼의 dtype
 df.columns  # 컬럼명
 pd.Series(df.columns)  # 컬럼명에 인덱스 붙이기(0, 1, 2)
 df.info()  # 데이터타입, 결측치 등의 정보
@@ -91,3 +92,67 @@ df = df['col1'].nunique().reset_index()
 # 컬럼 내 몇개의 고유값이 있는지 파악
 ```
 ## 데이터 변환
+### 결측치
+```python
+df.isna(), df.isnull()
+# 결측값 확인
+df.notna(), df.notnull()
+# 결측 아닌 값 확인
+df.isna().sum()
+# 결측치 갯수(column)
+df.isna().sum(axis=1)
+# 결측치 개수(row) 
+```
+```python
+df.dropna()
+# 결측치 제거
+df.dropna(how = 'any')
+# 한 값이라도 결측치가 있는 레이블을 삭제, default
+df.dropna(how = 'all')
+# 모든 값이 결측치인 레이블만 삭제
+df.dropna(subset = ['col1','col2','col3'])
+# 3개 변수에 대해 결측치삭제
+```
+```python
+df.filna({'행정구역':'서울','국가':'대한민국'})
+# 결측치를 해당값으로 채움
+df.filna({'확진자' : df['확진자'].mean()})
+# 결측치를 평균값으로 채움
+```
+```python
+# 결측치 채운 값을 원본에 적용하기
+df.filna({'행정구역' : '서울', '국가' : '대한민국', '확진자' : df['확진자'].mean()}, inplace=True)
+df['Cabin'] = df['Cabin'].filna('C000')
+df['Age'] = df['Age'].filna(df['Age'].mean())
+```
+```python
+df = df.drop(columns = ['A', 'C'])
+# 컬럼 별로 drop
+df = df.drop(['A', 'C'], axis = 1)
+# axis = 1을 이용해 컬럼별로 drop가능
+df = df.drop(index = [1, 4, 5])
+```
+
+
+
+
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
+```python
+```
