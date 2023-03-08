@@ -224,19 +224,23 @@ df = pd.crosstab(dia['cut'],dia['clarity'], normalize = 1).round(2)  # normalize
 df = pd.crosstab(dia['cut'],dia['clarity'], normalize = 0).round(2)  # normalize = 1 행기준으로 %
 df = pd.crosstab(dia['cut'],dia['clarity'],values = dia['price'],aggfunc = pd.Series.mean)
 ```
+### 값 변경
 ```python
-[replace] # 변수내 값 변경
-df['Sex'] = df['Sex'].replace('male', 'Man') # Sex의 male값을 Man
-df['Sex'] = df['Sex'].replace({'male':'Man', 'female':'Woman'}) # Sex의 male값을 Man, female값을 Woman
+df['Sex'] = df['Sex'].replace('male', 'Man')
+# Sex의 모든 male값을 Man으로 변경
+df['Sex'] = df['Sex'].replace({'male':'Man', 'female':'Woman'})
+# Sex의 모든 male값을 Man, 모든 female값을 Woman으로 변경
 df['Cabin'] = df['Cabin'].replace(np.nan, 'C001')
+# 결측치를 C001로 변경
 
-[변수내 value 값 조건에 따라 변경]
-tmp2 = np.where(tmp<7, tmp, 2*tmp) #np.where을 엑셀의 if문 처럼 사용
+tmp2 = np.where(tmp<7, tmp, 2*tmp)
+# np.where 괄호 안의 조건에 따라 변경
 
 [변수명인데 ' ' 없음]
 df_2014_2015 = df_mart_year_cnt_pivot.loc[(df_mart_year_cnt_pivot[2014] > 0) & (df_mart_year_cnt_pivot[2015] <= 0),] # '2014'시 error
-
-[Date 변수 처리]
+```
+### Date 변수처리
+```python
 # 컬럼내 datetime 값을 YY, MM, DD 로 바꾸기
 # 컬럼내 datetime에서 원하는 값만 필터링 하기
                                                                                            
@@ -257,7 +261,9 @@ df['Duration_Customer'] = df['Dt_Customer'].apply(lambda x:  (datetime.datetime.
 
 (datetime.datetime.strptime('2021-08-31','%Y-%m-%d')-datetime.datetime.strptime('2021-08-30','%Y-%m-%d')).days # row별로는 실행 가능
 * strptime은 문자열을 날짜로, strftime은 날짜를 문자열로 변환 주의:strptime은 Series 단위로 실행불가, row단위로 실행 <- lambda 사용
+```
 
+```python
 [파생변수 생성]
 df['Sex_cd'] = (df['Sex'] == 'M') + 0    # 파생변수 값이 1,0일대 유용 
 df['ratio'] = df['price'] / df['carat']
@@ -297,9 +303,4 @@ df = pd.concat([df, df_dum],axis=1) # 기존 df와 df_dum을 concat, 더미변�
 pd.cut(arr, bins = [0,4,6,10], right=True, labels=['a','b','c']) # right=True면 right포함, False면 미포함
 df['Na_K_gr'] = pd.cut(df['Na_to_K'], bins = [0, 9, 19, 29, 39],
        labels = ['Lv1', 'Lv2', 'Lv3','Lv4']) # labels 은 bins보다 1개 작아야 한다
-
-```
-```python
-```
-```python
 ```
