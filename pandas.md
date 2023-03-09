@@ -236,26 +236,40 @@ df['Cabin'] = df['Cabin'].replace(np.nan, 'C001')
 tmp2 = np.where(tmp<7, tmp, 2*tmp)
 # np.where 괄호 안의 조건에 따라 변경
 
-[변수명인데 ' ' 없음]
-df_2014_2015 = df_mart_year_cnt_pivot.loc[(df_mart_year_cnt_pivot[2014] > 0) & (df_mart_year_cnt_pivot[2015] <= 0),] # '2014'시 error
+
+df_2014_2015 = df_mart_year_cnt_pivot.loc[(df_mart_year_cnt_pivot[2014] > 0) & (df_mart_year_cnt_pivot[2015] <= 0),]
+# '' 미포함하여 구문 작성 가능
 ```
-### Date 변수처리
+### Datetime
 ```python
 # 컬럼내 datetime 값을 YY, MM, DD 로 바꾸기
 # 컬럼내 datetime에서 원하는 값만 필터링 하기
                                                                                            
 df['ymd']=df['date_column'].apply(pd.to_datetime)
+# 
 df['ymd']=pd.to_datetime(df['date_column'], format='%Y/%m/%d, %H:%M:%S')
+# 연/월/일, 시:분:초 포맷으로 날짜변환
 df['yy']=df.ymd.dt.year
-df['mm']=df['ymd'].dt.month # bike.ymd.dt vs bike['ymd'].dt 두 가지 포맷이 다 가능
-df['dd']=df.ymd.dt.day #날짜
+# 연(4자리 숫자)
+df['mm']=df['ymd'].dt.month
+# 월(숫자)
+# bike.ymd.dt vs bike['ymd'].dt 두 가지 포맷이 다 가능
+df['dd']=df.ymd.dt.day
+# 일(숫자)
 df['hour']=df.ymd.dt.hour
-df['wd']=df.ymd.dt.weekday #요일 숫자 (Monday=0, Sunday=6)
-df['wd']=df.ymd.dt.day_name() #요일 이름 메소드라 ()필요함 주의 
-df['wd']=df.ymd.dt.dt.month_name() #월 이름 메소드라 ()필요함 주의 
+# 시(숫자)
+df['wd']=df.ymd.dt.weekday
+# 요일(숫자) (Monday=0, Sunday=6)
+df['wd']=df.ymd.dt.day_name()
+# 요일 이름(문자), 메소드라 ()필요함 주의 
+df['wd']=df.ymd.dt.dt.month_name()
+# 월 이름(문자), 메소드라 ()필요함 주의 
 df['Datetime'] = pd.to_datetime(df['Datetime'], format='%m/%d/%Y, %H:%M:%S')
-df['D'] = (pd.to_datetime('31-08-2021',format = '%d-%m-%Y') - pd.to_datetime(df01['Dt_Customer'],format = '%d-%m-%Y')).dt.days # 날짜 수 계산시 추천
-df['stand_ym'] = df['date'].apply(lambda x: x[0:4]+x[5:7]) # 2001-03-04을 200103으로 만들기 lamda 함수 사용)
+# 연/월/일, 시:분:초 포맷적용
+df['D'] = (pd.to_datetime('31-08-2021',format = '%d-%m-%Y') - pd.to_datetime(df01['Dt_Customer'],format = '%d-%m-%Y')).dt.days
+# 날짜 수 계산시 추천
+df['stand_ym'] = df['date'].apply(lambda x: x[0:4]+x[5:7])
+# 2001-03-04을 200103으로 만들기 lamda 함수 사용)
 df['birth_yr'] = df['jumin7'].apply(lambda x: '19' + x[0:2]).astype(int) # 주민번호로 년도 만들기
 df['Duration_Customer'] = df['Dt_Customer'].apply(lambda x:  (datetime.datetime.strptime('2021-08-31','%Y-%m-%d') - datetime.datetime.strptime(x,'%d-%m-%Y')).days)
 
