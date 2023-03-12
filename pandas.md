@@ -276,7 +276,7 @@ df['Duration_Customer'] = df['Dt_Customer'].apply(lambda x:  (datetime.datetime.
 (datetime.datetime.strptime('2021-08-31','%Y-%m-%d')-datetime.datetime.strptime('2021-08-30','%Y-%m-%d')).days # row별로는 실행 가능
 * strptime은 문자열을 날짜로, strftime은 날짜를 문자열로 변환 주의:strptime은 Series 단위로 실행불가, row단위로 실행 <- lambda 사용
 ```
-
+### 변수
 ```python
 [파생변수 생성]
 df['Sex_cd'] = (df['Sex'] == 'M') + 0    # 파생변수 값이 1,0일대 유용 
