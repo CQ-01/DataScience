@@ -124,6 +124,7 @@
 ## 오차행렬(confusion matrix)
 - 분류에서 가장 많이 사용됨
 - 예측한 P/N대비 실제 P/N 현황
+<br>
 |TP|FN|
 |--|--|
 |FP|TN|
