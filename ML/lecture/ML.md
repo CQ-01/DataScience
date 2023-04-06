@@ -124,6 +124,7 @@
 ## 오차행렬(confusion matrix)
 - 분류에서 가장 많이 사용됨
 - 예측한 P/N대비 실제 P/N 현황
+  
 |TP|FN|
 |--|--|
 |FP|TN|
@@ -135,19 +136,19 @@
 - positive 판별기준을 널널하게 잡으면(임계값을 작게 잡으면) 재현율이 올라간다
 - 상황에 따라 정밀도나 재현율의 중요성이 달라진다
 - 재현율 정밀도 그래프
-- ![]()
+- ![재현율 정밀도 그래프](https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/34ES/image/tFzrPjRTTQ6AzJG4o6HcKu0enHM.png)
 ## F-score(F-measure)
 > 정밀도와 재현율 수치를 한번에 보기 위해 만들어짐
 - F1-Score : 일반적으로 사용됨, 정밀도와 재현율의 조화평균
 - Fb-Score : 특정수치가 부각되어야 할때 사용됨, 한쪽 수치에 가중치 b처리
 
-## AUC(Area Under Curve
+## AUC(Area Under Curve)
 > 분류 적합도 판단 기준, ROC 곡선 아래의 넓이
 - ROC곡선
   - FPR(false positive rate)을 X축으로, TPR(true positive rate)의 그래프
   - FPR : 실제 N클래스인 인스턴스를 P클래스로 잘못 분류한 비율
   - TPR : 실제 P클래스인 인스턴스를 정확히 분류한 비율 == 재현율
--![ROC curve]()
+-![ROC curve](https://velog.velcdn.com/images/zxxzx1515/post/a1114a22-b77a-4325-a02d-cb41ab079312/image.png)
 
 ## 좋은 평가방법
 - 모든 상황에 최적화된 모델은 없다
