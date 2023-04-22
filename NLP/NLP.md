@@ -56,13 +56,60 @@
 ### TF-IDF(Term Frequency - Inverse Document Frequency)
 > 단어마다 중요도를 고려하여 가중치를 준다
 - TF(단어 출현빈도) * IDF(역 문서 빈도) = TF-IDF 가중치
+  - TF : 특정문서에서 특정단어의 출현빈도
+  - DF : 전체 문서 중 특정단어가 등장한 문서 개수
+  - IDF : DF의 역수
+  - 전체 문서에서 빈출되는 단어의 중요도는 낮고, 특정 문서에서만 빈출되는 단어의 중요도를 높게 판단
 
 ## 3. Simularity
-
+> 단어나 문장을 벡터로 변환 후 유사도를 비교
+- Euclidean Distance
+- Cosine
+  
 ### Euclidean Distance Similarity
+> 벡터간의 거리를 계산하여 유사도를 측정
+- ed1 = $\sqrt{(5 - 5)^2+(1 - 2)^2}$
+- 거리가 짧을 수록 유사도가 높음
 
 ### Cosine Similarity
+> 두 벡터간의 사잇각을 계산하여 유사도를 측정
+- cos $\theta$ = $\frac{A\cdot B}{||A||\cdot||B||}$
+- 사잇각이 작을수록 유사도 높음
+- 벡터의 크기가 아닌 방향성 기반
 
 ## 4. Embedding
+> 단어나 문장을 벡터로 변환 후 벡터공간으로 끼워넣는 것
+- Word Embedding : 단어를 희소표현이 아닌 밀집표현으로 변환
+  - 희소표현(Sparse Representation) : 대부분 값이 0으로 표현되어 공간낭비, 단어 의미 담지 못함
+  - 밀집표현(Dense Representation) : 실수값을 사용하여 표현되는 지정된 차원의 밀집벡터
+- One-Hot Vector vs Embedding Vector
+
+||One_hot Vector|Embedding Vector|
+|--|--|--|
+|차원|고차원|저차원|
+|구조|희소벡터|밀집벡터|
+|표현방법|확정적|데이터로부터 학습|
+|값의 타입|0, 1|실수|
 
 ## 5. Word2vec
+> 문장 내의 비슷한 위치에 있는 단어로부터 유사도 획득
+- 각각의 벡터가 단어간 유사도를 반영한 값을 가짐
+- One-Hot Encoding 및 TF-IDF 방식의 단점 보완
+- CBOW(Continuous Bag of Words)
+- Skip-gram
+
+### CBOW
+> 주변에 있는 단어를 사용하여 중간에 있는 단어를 예측하는 방법
+- 윈도우를 이동(Sliding Window)하며 생성된 데이터로 임베딩 학습
+
+### Skip-gram
+> 중간에 있는 단어를 사용하여 주변에 있는 단어를 예측하는 방법
+- 윈도우 크기만큼 주변단어를 사용하여 생성된 데이터로 임베딩 학습
+
+### Word2Vec Model
+
+### Word2Vec Embedding
+
+### Visualization
+
+## 6. BERT vs GPT
