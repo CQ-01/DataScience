@@ -41,3 +41,28 @@
   - 언어의 특성상 자주 등장하는 단어에 높은 중요도를 부여
   - 단어의 순서를 고려하지 않아 문맥의미 반영 부족
   - 희소행렬(sparse metrix)을 생성하여 학습시간 및 성능에 부정적 영향
+- BoW - Feature Vectorization
+  - M * N 크기의 행렬(term-document matrix) 생성
+  - M개의 문장이나 문서
+  - N 종류의 단어
+
+### n-gram
+> N개의 단어를 활용하여 다음에 올 단어를 추출한다
+- 1-gram(unigram), 2-gram(bigram), 3-gram(trigram)
+- 단어 순서를 무시하는 BoW의 단점을 보완
+- 문장 내 전체 단어를 고려하는 언어모델과 비교해 정확도가 낮음
+- trade-off : N이 너무 작으면 문장 맥락 파악이 어렵고, 너무 크면 카운팅할 확률이 낮아 희소성 문제 대두
+
+### TF-IDF(Term Frequency - Inverse Document Frequency)
+> 단어마다 중요도를 고려하여 가중치를 준다
+- TF(단어 출현빈도) * IDF(역 문서 빈도) = TF-IDF 가중치
+
+## 3. Simularity
+
+### Euclidean Distance Similarity
+
+### Cosine Similarity
+
+## 4. Embedding
+
+## 5. Word2vec
