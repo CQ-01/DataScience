@@ -78,7 +78,7 @@
 - 벡터의 크기가 아닌 방향성 기반
 
 ## 4. Embedding
-> 단어나 문장을 벡터로 변환 후 벡터공간으로 끼워넣는 것
+> 단어나 문장을 벡터로 변환 후 벡터공간으로 끼워넣는 것, 전이학습
 - Word Embedding : 단어를 희소표현이 아닌 밀집표현으로 변환
   - 희소표현(Sparse Representation) : 대부분 값이 0으로 표현되어 공간낭비, 단어 의미 담지 못함
   - 밀집표현(Dense Representation) : 실수값을 사용하여 표현되는 지정된 차원의 밀집벡터
@@ -91,25 +91,27 @@
 |표현방법|확정적|데이터로부터 학습|
 |값의 타입|0, 1|실수|
 
-## 5. Word2vec
+- Encoding과의 차이점
+  - Embedding : 토큰들을 벡터로 변환하는 과정
+  - Encoding : Embedding된 벡터들을 Sentence Matrix로 변환하는 과정
+  - 보통 Encoder에서 Embedding과 Encoding 모두 수행
+
+### Word2vec
 > 문장 내의 비슷한 위치에 있는 단어로부터 유사도 획득
 - 각각의 벡터가 단어간 유사도를 반영한 값을 가짐
 - One-Hot Encoding 및 TF-IDF 방식의 단점 보완
 - CBOW(Continuous Bag of Words)
 - Skip-gram
 
-### CBOW
-> 주변에 있는 단어를 사용하여 중간에 있는 단어를 예측하는 방법
-- 윈도우를 이동(Sliding Window)하며 생성된 데이터로 임베딩 학습
+- CBOW : 주변에 있는 단어를 사용하여 중간에 있는 단어를 예측하는 방법
+  - 윈도우를 이동(Sliding Window)하며 생성된 데이터로 임베딩 학습
+- Skip-gram : 중간에 있는 단어를 사용하여 주변에 있는 단어를 예측하는 방법
+  - 윈도우 크기만큼 주변단어를 사용하여 생성된 데이터로 임베딩 학습
 
-### Skip-gram
-> 중간에 있는 단어를 사용하여 주변에 있는 단어를 예측하는 방법
-- 윈도우 크기만큼 주변단어를 사용하여 생성된 데이터로 임베딩 학습
+- Word2Vec Model
 
-### Word2Vec Model
+- Word2Vec Embedding
 
-### Word2Vec Embedding
+- Visualization
 
-### Visualization
-
-## 6. BERT vs GPT
+## 5. BERT vs GPT
