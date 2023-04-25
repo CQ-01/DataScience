@@ -111,7 +111,17 @@
 - Word2Vec Model
 
 - Word2Vec Embedding
+20230419NLP
 
 - Visualization
 
 ## 5. BERT vs GPT
+- 최근 NLP 동향 : Transfer learning & Fine tuning
+  
+### BERT
+- 다른 단어와의 관계를 통하여 임베팅 매트릭스 생성
+- transformer self-attention 구조 사용
+  
+### GPT
+- OPENAI의 NLP 모델
+- Maksed Language Model
