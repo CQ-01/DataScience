@@ -33,3 +33,5 @@
 # VI. Single Shot Detector
 # VII. You Only Look Once
 # VIII. Image Segmentation
+
+프로젝트에서 확인 해야할 사항 : local, OD
