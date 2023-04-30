@@ -40,10 +40,33 @@
    
 # III. Performance Metrics
 ## Evaluation Metrics
-- IOU(intersection over union)
-- 
+### IOU(intersection over union)
+> IoU = $\frac{겹치는 영역}{예측결과와 실제를 합한 영역}$
+- 예측결과가 실제와 얼마나 겹치는가를 평가하는 지표
+- 개별객체에 대한 탐지 성공 판단 기준
+- Confidence Threshold와 함께 사용
+### Confidence Threshold
+- IOU가 true Positive를 기준으로
+  - PASCAL VOC : 0.5
+  - COCO Challenge : 0.5 ~ 0.95(0.05 간격)
+- Confidence Threshold에 따라 Precision 과 Recall이 변화함
+  
+||예측결과 Positive|예측결과 Negative|
+|--|--|--|
+|실제 Positive|True Positive|False Negative|
+|실제 Negative|False Positive|True Negative|
+### Precision-Recall Curve
+> Recall 값의 변화에 따른 Precision 값의 변화를 곡선으로 표현
+- Precision(정밀도) : Positive로 예측한 결과 중 실제 Positive의 비율(탐지결과가 실제 객체와 얼마나 일치하는가)
+- Recall(재현율) : 실제 Positive중 Positive로 예측한 비율(실제 객체를 놓치지 않고 얼마나 정확하게 탐지하는가)
+- Confidence Threshold를 변경하면서 확인
+### Average Precision vs mAP
+- Average Precision : Precision-Reccall Curve 선 아래쪽 면적
+- mAP(Mean Average Precision) : 여러 객체 AP들의 평균
+- FPS(Frame Per Second) : 초당 처리 Frame 수
+
 # IV. Annotation Tools
-# V. Regions with CNN
+# V. Regions with CNN(R-CNN)
 # VI. Single Shot Detector
 # VII. You Only Look Once
 # VIII. Image Segmentation
