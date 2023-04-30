@@ -26,8 +26,22 @@
   - Image Scale 변경하여 고정된 크기의 window 적용
 ## Region Proposal
 - sliding window와 차별화된 알고리즘 기반
-- 
+- 이미지 내 다양한 크기의 object들에 대한 over segmentation
+  - size, color, texture, shape등을 기준으로 grouping(ROI : Range of Interest)
+- grouping을 반복하여 region proposal 수행
+## Non-maximum Suppression(NMS)
+> 예측 Bounding box 중에서 정확한 Bounding box를 선택하는 기법
+- 수행 단계
+  1. confidence score가 기준보다 큰 bounding box만 선택
+  2. 겹치는 다른 bounding box와의 IOU 계산
+  3. 계산된 IOU Threshold 값이 기준보다 큰 bounding box 제거
+  4. 다음 confidence score가 기준보다 큰 bounding box로 이동
+  5. 2 ~ 4 반복하여 진행
+   
 # III. Performance Metrics
+## Evaluation Metrics
+- IOU(intersection over union)
+- 
 # IV. Annotation Tools
 # V. Regions with CNN
 # VI. Single Shot Detector
