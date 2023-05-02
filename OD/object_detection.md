@@ -66,9 +66,28 @@
 - FPS(Frame Per Second) : 초당 처리 Frame 수
 
 # IV. Annotation Tools
+> Annotation : AI에서 이미지 인식등의 작업을 할 때 이미지에 해석 정보를 추가해 지도 학습 데이터를 만드는 작업, 여러 툴이 있다
+## labelimg
+## Computer Vision Annotaion Tool(CVAT)
+
 # V. Regions with CNN(R-CNN)
+## Object Detection
+- 2단계의 detector
+  - Stage1 : Region Proposal
+  - Stage2 : CNN Detector
+## R-CNN
+## SPP-Net
+## Fast R-CNN
+## Faster R-CNN
+
 # VI. Single Shot Detector
+## SSD
+
 # VII. You Only Look Once
+## YOLO
+
 # VIII. Image Segmentation
+## Segmentation
+## 
 
 프로젝트에서 확인 해야할 사항 : local, OD
