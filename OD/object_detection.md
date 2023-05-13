@@ -73,14 +73,31 @@
 # V. Regions with CNN(R-CNN)
 ## Object Detection
 - 2단계의 detector
-  - Stage1 : Region Proposal
+  - Stage1 : 지역 제안(Region Proposal)
   - Stage2 : CNN Detector
 ## R-CNN
-- Region Proposal 기반 Object Dectection
-  - Selective Search로 2000개의 Region Proposal
+- 지역 제안(Region Proposal) 기반 Object Dectection
+  - Selective Search로 2000개의 지역 제안(Region Proposal)
+  - 동일한 크기로 변경 후 CNN 적용
+  - 분류 : SVM Classifier
+  - 경계 상자 출력(Bounding Box Regression) : 사각형으로 객체 시각적 표현
+  - 기존 방식 대비 높은 정확도 제공
+  - CPU 기반 지역 제안
+  - 복잡한 처리 절차에 따른 과다한 연산량
+  - 매우 느린 Detection 시간
 ## SPP-Net
+> CNN 구조에 SPP레이어를 도입하여 객체의 크기나 비율에 무관하게 입력 이미지를 처리할 수 있도록
+- 입력 이미지를 여러 단계의 피라미드로 나누고 각 단계에서 피라미드 영역 내에서 Max Pooling을 수행하여 고정된 크기의 피처 맵을 생성
+- R-CNN 대비 빠른 수행 속도
 ## Fast R-CNN
+- ROI(Region of interest) Pooling : 다양한 크기의 feature map을 고정된 크기의 feature map으로 변경
+- Multi-Task Loss
+  - Classifier와 Bounding Box Regressor 동시 학습
+  - 각 예측 모델을 독립적으로 학습시키는 번거로움 제거
+  
 ## Faster R-CNN
+- 지역제안 단계에 Selective Search 가 아닌 CNN 적용
+- Anchor Box, Region Proposal Network(RPN)
 
 # VI. Single Shot Detector
 ## SSD
@@ -90,4 +107,3 @@
 
 # VIII. Image Segmentation
 ## Segmentation
-## 
