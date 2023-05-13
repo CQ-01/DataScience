@@ -76,6 +76,8 @@
   - Stage1 : Region Proposal
   - Stage2 : CNN Detector
 ## R-CNN
+- Region Proposal 기반 Object Dectection
+  - Selective Search로 2000개의 Region Proposal
 ## SPP-Net
 ## Fast R-CNN
 ## Faster R-CNN
@@ -89,5 +91,3 @@
 # VIII. Image Segmentation
 ## Segmentation
 ## 
-
-프로젝트에서 확인 해야할 사항 : local, OD
