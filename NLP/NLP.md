@@ -121,6 +121,9 @@
 ### BERT
 - 다른 단어와의 관계를 통하여 임베팅 매트릭스 생성
 - transformer self-attention 구조 사용
+
+- Bidirectional Encoder Representations from Transformer
+- 양방향에서 입력값을 받아 결과를 도출
   
 ### GPT
 - OPENAI의 NLP 모델
