@@ -27,3 +27,15 @@
 > 데이터프레임
 - 세로줄, 열(column) : 속성
 - 가로줄, 행(row) : 정보
+
+fillna
+replace
+describe
+axis
+sort_values
+at
+concat
+copy
+mean
+isnull
+gruopby
