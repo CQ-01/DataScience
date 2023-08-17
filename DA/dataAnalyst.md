@@ -39,3 +39,16 @@ copy
 mean
 isnull
 gruopby
+
+### Matplotlib
+- plt.axis([x1, x2, y1, y2])
+  - x1 ~ x2, y1 ~ y2
+- plt.title() : 제목
+- 
+- plt.grid() : 기준선 생성
+- plt.xlabel : x축 제목
+- plt.ylabel : y축 제목
+- plt.legend() : 범례
+- plt.xlim([x, y]) : x축의 범위 x ~ y
+- plt.ylim([x, y]) : y    "
+- plt.show() : figure 보이게 함
