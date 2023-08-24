@@ -52,3 +52,6 @@ gruopby
 - plt.xlim([x, y]) : x축의 범위 x ~ y
 - plt.ylim([x, y]) : y    "
 - plt.show() : figure 보이게 함
+
+### Folium
+- 
