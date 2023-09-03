@@ -1,6 +1,8 @@
 # R
 > 통계분석에 특화된 언어
-### 변수
+
+## I. 기본 문법
+### 1. 변수
 ```R
 a <- 1
 # a = 1도 같음
@@ -9,7 +11,7 @@ a
 1
 ```
 
-### 논리
+### 2. 논리
 ```R
 a == 1
 >> TRUE
@@ -18,7 +20,7 @@ a != 1
 >> FALSE
 ```
 
-### 자료형-vector
+### 3. Vector
 ```R
 a = c(1, 2, 3, 4, 5)
 a
@@ -45,7 +47,7 @@ e
 >> [1, 1, 1, 1, 1]
 ```
 
-### 조건문
+### 4. 조건문
 ```R
 if (조건식) {
     조건식이 참일때 실행문
@@ -55,7 +57,7 @@ if (조건식) {
 # 조건문에 &(and), |(or) 추가사용 가능
 ```
 
-### 반복문
+### 5. 반복문
 ```R
 for (i in 1:5) {
     print('*')
@@ -67,7 +69,7 @@ while (i > 100) {
 }
 ```
 
-### 인덱싱
+### 6. 인덱싱
 - vector에서
     ```R
     a = c(1, 2, 3, 4, 5)
@@ -100,7 +102,7 @@ while (i > 100) {
     # 1, 2, 3행 & 2열 제외
     # 여러 행/열 지정 가능, 특정 행/열 제외 가능
     ```
-### 데이터 조작
+### 7. 기타 함수
 - `as` : 
     ```R
     # 데이터타입 변경
@@ -132,3 +134,43 @@ Plus_One = function(x) {
 Plus_One(3)
 >> 4
 ```
+## II. 데이터 전처리
+### 1. 데이터 불러오기
+- 작업경로 확인
+    ```R
+    getwd()
+    # 현재 경로 확인
+
+    setwd('이동하려는 경로')
+    # 특정 경로로 이동하기
+    ```
+
+- 데이터 불러오기
+    ```R
+    HR = read.csv('HR_comma_sep.csv')
+    # csv파일 불러오기
+
+    read.delim
+    # txt파일 불러오기
+    ```
+- 데이터 파악하기
+    ```R
+    head(HR)
+    # 데이터 윗부분 확인
+
+    str(HR)
+    # 데이터 strings 파악
+
+    summary(HR)
+    # 요약된 데이터 확인
+    ```
+- 데이터 타입 변경
+    ```R
+    summary(HR$left)
+
+    HR$Work_accident=as.factor(HR$Work_accident)
+    HR$left=as.factor(HR$left)
+    HR$promotion_last_5years=as.factor(HR$promotion_last_5years)
+    
+    summary(HR$left)
+    ```
